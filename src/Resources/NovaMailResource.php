@@ -71,12 +71,12 @@ class NovaMailResource extends Resource
             Number::make(__('Tries'), 'tries'),
             
             DateTime::make('Created', 'created_at')
-                ->format('DD-MM-YYYY')
+                ->format('DD-MM-YYYY hh:mm:ss')
                 ->sortable()
                 ->onlyOnDetail(),
 
             DateTime::make('Last Updated', 'updated_at')
-                ->format('DD-MM-YYYY')
+                ->format('DD-MM-YYYY hh:mm:ss')
                 ->sortable(),
         ];
     }
