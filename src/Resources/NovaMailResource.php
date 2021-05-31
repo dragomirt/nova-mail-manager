@@ -15,6 +15,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Resource;
 use Illuminate\Http\Request;
 
@@ -68,6 +69,15 @@ class NovaMailResource extends Resource
             Boolean::make(__('Is Sent'), 'is_sent'),
 
             Number::make(__('Tries'), 'tries'),
+            
+            DateTime::make('Created', 'created_at')
+                ->format('DD-MM-YYYY')
+                ->sortable()
+                ->onlyOnDetail(),
+
+            DateTime::make('Last Updated', 'updated_at')
+                ->format('DD-MM-YYYY')
+                ->sortable(),
         ];
     }
 
